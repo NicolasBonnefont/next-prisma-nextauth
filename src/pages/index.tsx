@@ -1,6 +1,22 @@
 import { Flex, Heading, IconButton, Stack, Text } from "@chakra-ui/react";
+import { GetServerSideProps } from "next";
+import { getSession, signIn, useSession } from "next-auth/react";
+import { useState } from "react";
 import { FiGithub } from 'react-icons/fi';
+
+
 export default function Home() {
+
+  const { data, status } = useSession()
+
+  useState(() => {
+    console.log(status)
+  }, [])
+
+  async function handleSignIn() {
+    signIn('github')
+  }
+
   return (
     <Flex
       bg='gray.700'
@@ -9,22 +25,50 @@ export default function Home() {
       justifyContent='center'
       alignItems='center'
     >
-      <Stack as='form' >
+      <Stack >
         <Heading color='white'>Login com GitHub</Heading>
 
         <Text color='white' mb={4}>
           Faça login com sua conta do GitHub.
         </Text>
+        <Text>
+          {
+            JSON.stringify(data)
+          }
+        </Text>
+
 
         <IconButton
           aria-label='Login com GitHub'
           icon={<FiGithub size={30} />}
           colorScheme={'purple'}
           size='lg'
+          onClick={handleSignIn}
         />
 
       </Stack>
 
     </Flex>
   )
+}
+
+
+export const getServerSideProps: GetServerSideProps = async ({ req }) => {
+
+  const session = await getSession({ req })
+
+  if (session) {
+    return {
+      redirect:{
+        destination:'/app',
+        permanent: false
+      }
+    }
+  }
+
+  return {
+    props: {
+
+    }
+  }
 }
