@@ -2,7 +2,7 @@
  - Next
  - Next-Auth
  - ChakraUI
- - Prima ORM
+ - Prisma ORM
 
 Crie um arquivo .env.local na raiz do projeto e informe as seguintes variavesi:
 
