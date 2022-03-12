@@ -5,8 +5,6 @@ import { FiGithub } from 'react-icons/fi';
 
 export default function Home() {
 
-  const { data, status } = useSession()
-
   async function handleSignIn() {
     signIn('github')
   }
