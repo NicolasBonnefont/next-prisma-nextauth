@@ -4,7 +4,7 @@ Este é um repo de testes de login via GitHub com as seguintes tecnologias:
  - ChakraUI
  - Prisma ORM
 
-Crie um arquivo .env.local na raiz do projeto e informe as seguintes variavesi:
+Crie um arquivo .env.local na raiz do projeto e informe as seguintes variaveis:
 
 GITHUB_ID=xxx
 GITHUB_SECRET=xxx
