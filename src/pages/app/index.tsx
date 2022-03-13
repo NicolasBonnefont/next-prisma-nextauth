@@ -1,18 +1,15 @@
 /* eslint-disable jsx-a11y/alt-text */
-import { Flex, Image, Menu, MenuButton, MenuItem, MenuList, Stack, Text, Link, Box } from '@chakra-ui/react';
-import { GetServerSideProps } from 'next';
+import { Box, Flex, Image, Link, Menu, MenuButton, MenuItem, MenuList, Stack, Text } from '@chakra-ui/react';
 import { signOut, useSession } from 'next-auth/react';
 import React, { useEffect } from 'react';
-import { prisma } from '../../lib/prisma';
 
-export default function Hello({ tasks }) {
+export default function Hello({ }) {
 
   const { data } = useSession()
 
   useEffect(() => {
     console.log(data)
   }, [])
-
 
   return (
     <Flex
@@ -55,23 +52,13 @@ export default function Hello({ tasks }) {
         </Box>
         ]
       </Flex>
-
-      <Stack>
-        {
-          tasks.map(item =>
-
-            <Text color='white' key={item.id}> {item.title}</Text>
-          )
-        }
-      </Stack>
-
     </Flex>
   );
 }
 
 ;
 
-export const getServerSideProps: GetServerSideProps = async () => {
+/* export const getServerSideProps: GetServerSideProps = async () => {
 
   const tasks = await prisma.tasks.findMany()
 
@@ -88,4 +75,4 @@ export const getServerSideProps: GetServerSideProps = async () => {
       tasks: data
     }
   }
-}
+} */
