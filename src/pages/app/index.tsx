@@ -37,7 +37,11 @@ export default function Hello({ }) {
                 color='white'
                 spacing='4'
               >
+                <Stack spacing='0'>
                 <Text >Olá, {data?.user.name}</Text>
+                <Text fontSize='12px' textAlign='end'> {data?.user.email}</Text>
+                </Stack>
+                
                 <Image
                   src={data?.user?.image}
                   borderRadius='full'

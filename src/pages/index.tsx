@@ -2,12 +2,9 @@ import { Flex, Heading, IconButton, Stack, Text } from "@chakra-ui/react";
 import { GetServerSideProps } from "next";
 import { getSession, signIn, useSession } from "next-auth/react";
 import { FiGithub } from 'react-icons/fi';
+import { FcGoogle } from 'react-icons/fc';
 
 export default function Home() {
-
-  async function handleSignIn() {
-    signIn('github')
-  }
 
   return (
     <Flex
@@ -17,18 +14,35 @@ export default function Home() {
       justifyContent='center'
       alignItems='center'
     >
-      <Stack >
-        <Heading color='white'>Login com GitHub</Heading>
-        <Text color='white' mb={4}>
-          Faça login com sua conta do GitHub.
-        </Text>
-        <IconButton
-          aria-label='Login com GitHub'
-          icon={<FiGithub size={30} />}
-          colorScheme={'purple'}
-          size='lg'
-          onClick={handleSignIn}
-        />
+      <Stack direction='row' spacing={4}>
+        <Stack>
+          <Heading color='white'>Login com GitHub</Heading>
+          <Text color='white' mb={4}>
+            Faça login com sua conta do GitHub.
+          </Text>
+          <IconButton
+            aria-label='Login com Google'
+            icon={<FiGithub size={30} />}
+            colorScheme={'purple'}
+            size='lg'
+            onClick={()=> signIn('github')}
+          />
+        </Stack>
+
+        <Stack>
+          <Heading color='white'>Login com Google</Heading>
+          <Text color='white' mb={4}>
+            Faça login com sua conta do GitHub.
+          </Text>
+          <IconButton
+            aria-label='Login com Google'
+            icon={<FcGoogle size={30} />}
+            bg='white'
+            size='lg'
+            onClick={()=> signIn('google')}
+          />
+        </Stack>
+
       </Stack>
     </Flex>
   )
