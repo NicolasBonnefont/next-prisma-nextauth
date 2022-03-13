@@ -11,3 +11,5 @@ GITHUB_ID=xxx
 GITHUB_SECRET=xxx
 
 NEXTAUTH_SECRET=xxx
+
+Link para teste https://next-prisma-nextauth.vercel.app
