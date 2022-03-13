@@ -1,4 +1,4 @@
-Este é um repo de testes de login via GitHub com as seguintes tecnologias:
+Este é um repo de testes de login via GitHub e Google com as seguintes tecnologias:
  - Next
  - Next-Auth
  - ChakraUI
