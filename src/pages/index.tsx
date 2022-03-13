@@ -3,6 +3,7 @@ import { GetServerSideProps } from "next";
 import { getSession, signIn, useSession } from "next-auth/react";
 import { FiGithub } from 'react-icons/fi';
 import { FcGoogle } from 'react-icons/fc';
+import { GrFacebook } from 'react-icons/gr';
 
 export default function Home() {
 
@@ -14,7 +15,7 @@ export default function Home() {
       justifyContent='center'
       alignItems='center'
     >
-      <Stack direction={['column','row']} spacing={12}>
+      <Stack direction={['column', 'row']} spacing={12}>
         <Stack>
           <Heading color='white'>Login com GitHub</Heading>
           <Text color='white' mb={4}>
@@ -25,12 +26,12 @@ export default function Home() {
             icon={<FiGithub size={30} />}
             colorScheme={'purple'}
             size='lg'
-            onClick={()=> signIn('github')}
+            onClick={() => signIn('github')}
           />
         </Stack>
 
         <Stack
-        color='white'
+          color='white'
         >
           <Heading >Login com Google</Heading>
           <Text mb={4}>
@@ -41,7 +42,24 @@ export default function Home() {
             icon={<FcGoogle size={30} />}
             bg='white'
             size='lg'
-            onClick={()=> signIn('google')}
+            onClick={() => signIn('google')}
+          />
+        </Stack>
+        
+
+        <Stack
+          color='white'
+        >
+          <Heading >Login com Facebook</Heading>
+          <Text mb={4}>
+            Faça login com sua conta do Facebook.
+          </Text>
+          <IconButton
+            colorScheme='facebook'
+            aria-label='Login com Google'
+            icon={<GrFacebook size={30} />}
+            size='lg'
+            onClick={() => signIn('facebook')}
           />
         </Stack>
 
