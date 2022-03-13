@@ -14,7 +14,7 @@ export default function Home() {
       justifyContent='center'
       alignItems='center'
     >
-      <Stack direction='row' spacing={4}>
+      <Stack direction={['column','row']} spacing={12}>
         <Stack>
           <Heading color='white'>Login com GitHub</Heading>
           <Text color='white' mb={4}>
@@ -29,9 +29,11 @@ export default function Home() {
           />
         </Stack>
 
-        <Stack>
-          <Heading color='white'>Login com Google</Heading>
-          <Text color='white' mb={4}>
+        <Stack
+        color='white'
+        >
+          <Heading >Login com Google</Heading>
+          <Text mb={4}>
             Faça login com sua conta do GitHub.
           </Text>
           <IconButton
